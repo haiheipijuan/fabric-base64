@@ -1,0 +1,19 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "AtFsBO7gVFFzOAY+O353q79ceuA=",
+			"path": "github.com/spf13/cobra",
+			"revision": "84f471618b363c4e298af84c2b53aa4f687c5f70",
+			"revisionTime": "2017-06-05T17:32:33Z"
+		},
+		{
+			"checksumSHA1": "STxYqRb4gnlSr3mRpT+Igfdz/kM=",
+			"path": "github.com/spf13/pflag",
+			"revision": "e57e3eeb33f795204c1ca35f56c44f83227c6e66",
+			"revisionTime": "2017-05-08T18:43:26Z"
+		}
+	],
+	"rootPath": "github.com/haiheipijuan/fabric-base64"
+}
