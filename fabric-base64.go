@@ -50,14 +50,14 @@ func generateBase64(ordMsp, peerMsp, outFile string) ([]byte, error) {
 	var result []byte
 
 	if ordMsp == "" && peerMsp == "" {
-		return result, fmt.Errorf("Both orderer msp and peer msp is nil\n")
+		return result, fmt.Errorf("Both orderer msp and peer msp is nil")
 	}
 
 	jsonMap := make(map[string]interface{})
 	if ordMsp != "" {
 		ordMap, err := readDirPem(ordMsp)
 		if err != nil {
-			return result, fmt.Errorf("Read orderer cert error:%v\n", err)
+			return result, fmt.Errorf("Read orderer cert error:%v", err)
 		}
 
 		jsonMap["orderer"] = ordMap
@@ -66,7 +66,7 @@ func generateBase64(ordMsp, peerMsp, outFile string) ([]byte, error) {
 	if peerMsp != "" {
 		peerMap, err := readDirPem(peerMsp)
 		if err != nil {
-			return result, fmt.Errorf("Read peer cert error:%v\n", err)
+			return result, fmt.Errorf("Read peer cert error:%v", err)
 		}
 
 		jsonMap["peer"] = peerMap
@@ -74,19 +74,19 @@ func generateBase64(ordMsp, peerMsp, outFile string) ([]byte, error) {
 
 	data, err := json.Marshal(jsonMap)
 	if err != nil {
-		return result, fmt.Errorf("Json marshal error:%v\n", err)
+		return result, fmt.Errorf("Json marshal error:%v", err)
 	}
 
 	var out bytes.Buffer
 	err = json.Indent(&out, data, "", "\t")
 	if err != nil {
-		return result, fmt.Errorf("Json indent error:%v\n", err)
+		return result, fmt.Errorf("Json indent error:%v", err)
 	}
 
 	if outFile != "" {
 		err := ioutil.WriteFile(outFile, out.Bytes(), 0666)
 		if err != nil {
-			return result, fmt.Errorf("Write to %v error:%v\n", outFile, err)
+			return result, fmt.Errorf("Write to %v error:%v", outFile, err)
 		}
 		return []byte("Success"), nil
 	}
